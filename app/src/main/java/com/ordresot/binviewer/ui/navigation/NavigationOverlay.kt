@@ -13,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.composable
+import com.ordresot.binviewer.ui.bin_list.BINList
 import com.ordresot.binviewer.ui.bin_search.BINSearch
 
 @Composable
@@ -49,7 +50,7 @@ fun NavigationOverlay() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(NavItem.BINSearchItem.route) { BINSearch() }
-            composable(NavItem.BINListItem.route) {  }
+            composable(NavItem.BINListItem.route) { BINList() }
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.ordresot.binviewer.data.network.dto
+package com.ordresot.binviewer.data.remote.dto
 
 data class CountryDto(
     val numeric: String?,

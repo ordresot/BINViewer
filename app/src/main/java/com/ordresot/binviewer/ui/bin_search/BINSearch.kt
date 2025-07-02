@@ -26,6 +26,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.ordresot.binviewer.ui.utils.BankCardView
+import com.ordresot.binviewer.ui.utils.InfoRow
 
 @Composable
 fun BINSearch(){
@@ -50,45 +52,8 @@ fun BINSearch(){
             uiState.isLoading -> CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
             uiState.error != null -> Text(uiState.error!!, color = Color.Red)
             uiState.data != null -> {
-                Card(
-                    modifier = Modifier.fillMaxWidth().padding(10.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
-                    elevation = CardDefaults.elevatedCardElevation(defaultElevation = 10.dp)
-                ) {
-                    Column(
-                        Modifier.fillMaxWidth().padding(10.dp)
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(10.dp),
-                            verticalArrangement = Arrangement.spacedBy(6.dp)
-                        ) {
-                            InfoRow("Платежная система", uiState.data!!.getSchemeUppercased() )
-                            InfoRow("Тип", uiState.data!!.getTypeUppercased())
-                            InfoRow("Страна", uiState.data!!.country)
-                            InfoRow("Координаты", uiState.data!!.getCoordinates())
-                            InfoRow("Банк", uiState.data!!.bankName)
-                            InfoRow("Сайт", uiState.data!!.bankUrl)
-                            InfoRow("Телефон", uiState.data!!.bankPhone)
-                            InfoRow("Город", uiState.data!!.bankCity)
-                        }
-                    }
-                }
+                BankCardView(uiState.data!!)
             }
-        }
-    }
-}
-
-@Composable
-fun InfoRow(label: String, value: String?) {
-    if (!value.isNullOrBlank()) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(text = label, style = MaterialTheme.typography.bodyMedium)
-            Text(text = value, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
         }
     }
 }

@@ -1,11 +1,11 @@
-package com.ordresot.binviewer.data.network
+package com.ordresot.binviewer.data.remote
 
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import com.ordresot.binviewer.data.network.api.BINApiService
-import com.ordresot.binviewer.data.network.api.NetworkClient
-import com.ordresot.binviewer.data.network.dto.Request
-import com.ordresot.binviewer.data.network.dto.Response
+import com.ordresot.binviewer.data.remote.api.BINApiService
+import com.ordresot.binviewer.data.remote.api.NetworkClient
+import com.ordresot.binviewer.data.remote.dto.Request
+import com.ordresot.binviewer.data.remote.dto.Response
 import java.net.ConnectException
 import javax.inject.Inject
 
